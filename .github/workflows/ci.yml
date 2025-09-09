@@ -29,11 +29,38 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests against Railway
-        run: npx playwright test
+      # NEW: sanity-check BASE_URL secret exists
+      - name: Check BASE_URL is set
+        run: |
+          echo "BASE_URL=${{ secrets.RAILWAY_BASE_URL }}"
+          test -n "${{ secrets.RAILWAY_BASE_URL }}" || (echo "ERROR: RAILWAY_BASE_URL secret is missing" && exit 1)
+
+      # NEW: check live site is reachable (3 attempts)
+      - name: Probe live site
+        run: |
+          for i in 1 2 3; do
+            echo "Attempt $i: curl -I ${{ secrets.RAILWAY_BASE_URL }}"; 
+            if curl -sSf -I "${{ secrets.RAILWAY_BASE_URL }}" > /dev/null; then 
+              echo "Site reachable."; 
+              exit 0; 
+            fi; 
+            sleep 5; 
+          done; 
+          echo "ERROR: Live site not reachable"; 
+          exit 1
+
+      # Helpful: list tests Playwright sees
+      - name: List Playwright tests
+        run: npx playwright test --list
+
+      # Force HTML report path so the folder always exists
+      - name: Run Playwright tests (HTML report)
         env:
           BASE_URL: ${{ secrets.RAILWAY_BASE_URL }}
+          PLAYWRIGHT_HTML_REPORT: playwright-report
+        run: npx playwright test --reporter=html
 
+      # Always try to upload the report (even if tests fail)
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
