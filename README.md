@@ -10,3 +10,27 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+# Railway Video Player 
+
+A simple video player web application built with **React** + **Vite**, deployed on **Railway**.  
+This project is part of my 7-day GitHub + Cursor training journey.
+
+---
+
+## Project Overview
+- Plays a sample MP4 video (`public/videos/sample.mp4`)  
+- Built with Vite for fast refresh and simple dev setup  
+- Deployed automatically to Railway on every push to `main`
+
+---
+
+## 🔧 Local Development
+Clone and run locally:
+
+```bash
+git clone https://github.com/samualoprice-SEA/railway-video-player.git
+cd railway-video-player
+npm install
+npm run dev
