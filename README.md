@@ -44,6 +44,9 @@ The app is deployed on [Railway](https://railway.app):
 
 👉 [https://your-app.up.railway.app](https://your-app.up.railway.app)
 
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Frailway-video-player-production.up.railway.app)](https://railway-video-player-production.up.railway.app)
+
+
 - Built with React + Vite
 - Deployed automatically from GitHub on each push to `main`
 - Video source: [`public/videos/sample.mp4`](public/videos/sample.mp4)
