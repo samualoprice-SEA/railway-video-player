@@ -34,3 +34,13 @@ git clone https://github.com/samualoprice-SEA/railway-video-player.git
 cd railway-video-player
 npm install
 npm run dev
+
+## 🌐 Live Demo
+
+The app is deployed on [Railway](https://railway.app):
+
+👉 [https://your-app.up.railway.app](https://your-app.up.railway.app)
+
+- Built with React + Vite
+- Deployed automatically from GitHub on each push to `main`
+- Video source: [`public/videos/sample.mp4`](public/videos/sample.mp4)
