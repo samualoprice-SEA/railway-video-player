@@ -23,8 +23,6 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      # You can keep build to ensure the project still compiles,
-      # even if tests hit the live Railway URL.
       - name: Build (sanity)
         run: npm run build
 
@@ -36,7 +34,6 @@ jobs:
         env:
           BASE_URL: ${{ secrets.RAILWAY_BASE_URL }}
 
-      # Optional: upload Playwright HTML report (handy for debugging)
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4
