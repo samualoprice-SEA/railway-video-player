@@ -7,8 +7,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  e2e:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,16 +18,28 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: "npm"
 
       - name: Install deps
         run: npm ci
 
-      - name: Build
+      # You can keep build to ensure the project still compiles,
+      # even if tests hit the live Railway URL.
+      - name: Build (sanity)
         run: npm run build
 
-      - name: Upload dist
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests against Railway
+        run: npx playwright test
+        env:
+          BASE_URL: ${{ secrets.RAILWAY_BASE_URL }}
+
+      # Optional: upload Playwright HTML report (handy for debugging)
+      - name: Upload Playwright report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: dist
-
+          name: playwright-report
+          path: playwright-report
