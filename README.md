@@ -14,7 +14,12 @@ If you are developing a production application, we recommend using TypeScript wi
 
 # Railway Video Player 
 
+# Railway Video Player 🎥
+
 [![CI](https://github.com/samualoprice-SEA/railway-video-player/actions/workflows/ci.yml/badge.svg)](https://github.com/samualoprice-SEA/railway-video-player/actions/workflows/ci.yml)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Frailway-video-player-production.up.railway.app)](https://railway-video-player-production.up.railway.app)
+
+
 
 
 A simple video player web application built with **React** + **Vite**, deployed on **Railway**.  
