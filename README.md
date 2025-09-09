@@ -14,6 +14,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
 # Railway Video Player 
 
+[![CI](https://github.com/samualoprice-SEA/railway-video-player/actions/workflows/ci.yml/badge.svg)](https://github.com/samualoprice-SEA/railway-video-player/actions/workflows/ci.yml)
+
+
 A simple video player web application built with **React** + **Vite**, deployed on **Railway**.  
 This project is part of my 7-day GitHub + Cursor training journey.
 
