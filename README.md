@@ -61,3 +61,5 @@ The app is deployed on [Railway](https://railway.app):
 - Railway (deployment)
 - Playwright (E2E testing)
 - GitHub Actions (CI/CD)
+
+![App Screenshot](https://raw.githubusercontent.com/samualoprice-SEA/railway-video-player/main/public/screenshot.png)
