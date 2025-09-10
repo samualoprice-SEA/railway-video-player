@@ -55,3 +55,9 @@ The app is deployed on [Railway](https://railway.app):
 - Built with React + Vite
 - Deployed automatically from GitHub on each push to `main`
 - Video source: [`public/videos/sample.mp4`](public/videos/sample.mp4)
+
+## 🛠 Tech Stack
+- React + Vite
+- Railway (deployment)
+- Playwright (E2E testing)
+- GitHub Actions (CI/CD)
